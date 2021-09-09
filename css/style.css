@@ -1,0 +1,147 @@
+.wrapper {
+    display: flex;
+}
+
+#partie-gauche,
+#partie-droite {
+    flex-basis: 50%;
+    height: 100vh;
+}
+
+#partie-gauche {
+    background-image: url("../images/nicole2.jpg");
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding:1em;
+    color: white;
+}
+
+#partie-gauche header h1{
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: 1.2em;
+    padding-left:1.2em;
+    text-transform:uppercase;
+    width:1em;
+    line-height:1em; 
+
+}
+#partie-gauche section {
+    text-align:right;
+    padding:1em;
+    background-color: rgba(48, 48, 48, 0.3);
+}
+
+#partie-gauche section {
+    font-size:smaller;
+}
+
+/* #partie-gauche section > p + p ne fonctionne pas car il sélectionne une balise p précédée d'une autre balise p  */
+/* #partie-gauche section > p:nth-child(1) permet de récupérer uniquement le premier mais nth-child est beaucoup et permet de récupérer de manière cyclique (un élément sur 5 par exemple) */
+/* #partie-gauche section p:first-child fonctionne très bien car le p est le premier enfant de son parent */
+/* mais celui ci (en dessous) est plus précis car il sélectionne uniquement la balise p qui est la première de ce type de son parent, */
+#partie-gauche section p:first-of-type {
+    font-style: italic;
+}
+
+#partie-gauche section p:first-of-type strong {
+    font-size: 1.3em;
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+/* 
+on pourrait aligner le footer à la fin 
+cet alignement concerne le footer car il est enfant de partie-gauche qui est en display:flex; en colonne
+#partie-gauche footer{
+    align-self: flex-end;
+} 
+*/
+
+#partie-gauche footer ul {
+    display:flex;
+    list-style-type: none;
+    justify-content: flex-end;
+   
+}
+
+#partie-gauche footer ul li {
+    margin-left: 1em;
+}
+
+
+#partie-gauche footer ul li a {
+    color: white;
+    text-shadow: 0 0 4px #333;
+}
+
+#partie-droite {
+    overflow: auto;
+}
+#partie-droite header {
+    padding: .8em;
+    background-color: #f9f9f9;
+}
+
+
+#posts {
+    display: flex;
+    flex-wrap: wrap;
+    border-left:1px solid #eaeaea;
+    border-top:1px solid #eaeaea;
+}
+
+.post {
+    flex-basis: 50%;
+    padding: 1em;
+    border-right: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.badge {
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 2px 5px;
+    color : white;
+    font-size: smaller;
+    font-weight: bold;
+    background-color: gray; /* pour voir le badge sur fond blanc*/
+}
+.badge:hover { /* ou .post-news .badge:hover { } mais cela marchera que pour news et pas les autres*/
+    color: white;
+    text-decoration: none;
+}
+.post-news .badge {
+    background-color: #98dc62;
+}
+
+.post-work .badge {
+    background-color: #0766f0;
+}
+
+.post-team .badge {
+    background-color: #dc5e53 ;
+}
+.post-read {
+    text-decoration: underline;
+    font-weight:bold;
+}
+
+.meta {
+    font-size: 0.8em;
+      /* pour simplifier la gestion des espacements verticaux, un bon conseil est de toujours les gérer soit par l'élément du haut (ou du bas) */
+    margin-bottom: 1em;
+}
+.meta-icon {
+    width: 2em;
+}
+.meta-date {
+    color:  #eaeaea;
+}
+
